@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="OfixHub: Soluciones innovadoras para tu negocio. Servicios de alta calidad para empresas.">
+    <meta name="author" content="OfixHub">
+
+    <!-- Título que aparece en el buscador -->
+    <title>OfixHub – Soluciones en Papelería y Tecnología</title>
+
+    <!-- Descripción que aparece debajo del título en Google -->
+    <meta name="description"
+        content="OfixHub es una plataforma web que combina papelería tradicional con servicios tecnológicos. Visítanos para soluciones modernas y eficientes.">
+
+    <!-- Ícono que aparece en la pestaña y resultados (favicon) -->
+    <link rel="icon" href="src/OfixHub_ico.png" type="image/png">
+
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+
+    <meta name="google-site-verification" content="86cSKm3YRX__mH1unPjYnQuGBDMEqKi3PqcfHW-JUgc" />
+</head>
+
+<body>
+    <!-- Botón para mostrar/ocultar la barra de navegación en pantallas pequeñas -->
+    <button id="toggleNav" class="toggle-nav" aria-label="Abrir menú de navegación">☰</button>
+
+    <!-- Barra de navegación con logo -->
+    <nav id="barnav" class="barnav" role="navigation">
+        <div class="nav-container">
+            <img src="src/OfixHub_Barner.png" alt="OfixHub Logo" class="logo">
+            <ul>
+                <li><a href="index.html" class="activo" aria-label="Ir a inicio">Inicio</a></li>
+                <li><a href="#" onclick="cargarContenido('pages/servicios.html')"
+                        aria-label="Ir a servicios">Servicios</a></li>
+                <li><a href="#" onclick="cargarContenido('pages/nosotros.html')" aria-label="Ir a sobre nosotros">Sobre
+                        Nosotros</a></li>
+                <li><a href="#" onclick="cargarContenido('pages/contacto.html')" aria-label="Ir a contacto">Contacto</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- PopUp -->
+    <div id="popup" class="popup" aria-live="assertive" role="alert">
+        <div class="popup-content">
+            <p>Su mensaje se ha enviado</p>
+            <button id="popup-ok" aria-label="Cerrar el mensaje de confirmación">Aceptar</button>
+        </div>
+    </div>
+
+    <!-- Contenedor donde se cargará el contenido -->
+    <div id="contenido">
+        <!-- Contenido de inicio se cargará aquí automáticamente -->
+    </div>
+
+    <!-- Botón flotante de WhatsApp -->
+    <a id="whatsappButton" href="https://wa.me/3138835376" target="_blank" aria-label="Contactar vía WhatsApp">
+        <img src="src/Whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
+    </a>
+
+    <!-- Footer pegado al final -->
+    <footer>
+        <p>&copy; 2025 OfixHub.</p>
+    </footer>
+</body>
+
+</html>
