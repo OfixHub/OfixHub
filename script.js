@@ -48,16 +48,27 @@ document.addEventListener("DOMContentLoaded", async function () {
     // ==============================
     function toggleMenu() {
         barnav.classList.toggle("visible");
+        toggleNav.classList.toggle("hidden", barnav.classList.contains("visible"));
     }
 
     function cerrarMenuMovil() {
         if (window.innerWidth <= 768) {
             barnav.classList.remove("visible");
+            toggleNav.classList.remove("hidden");
         }
     }
 
     function ajustarNav() {
-        barnav.classList.toggle("visible", window.innerWidth > 768);
+        const isDesktop = window.innerWidth > 768;
+        barnav.classList.toggle("visible", isDesktop);
+        if (isDesktop) {
+            toggleNav.classList.add("hidden"); // Ensure hidden on desktop
+        } else {
+            // On mobile, only show if menu is NOT visible
+            if (!barnav.classList.contains("visible")) {
+                toggleNav.classList.remove("hidden");
+            }
+        }
     }
 
     function marcarEnlaceActivo(pagina) {
@@ -81,24 +92,18 @@ document.addEventListener("DOMContentLoaded", async function () {
     // FUNCIONES DE CAMBIO DE TEMA
     // ==============================
     function cambiarPaleta(colores) {
-        document.body.style.backgroundColor = colores.background;
-        document.body.style.color = colores.texto;
-        barnav.style.backgroundColor = colores.navBackground;
-        
-        navLinks.forEach(link => {
-            link.style.color = colores.linkColor;
-            link.style.borderColor = colores.linkBorderColor;
-            link.style.backgroundColor = colores.linkBackground;
-        });
-
-        document.querySelectorAll(".box").forEach(box => {
-            box.style.backgroundColor = colores.boxBackground;
-        });
-
-        footer.style.backgroundColor = colores.footerBackground;
-        footer.querySelectorAll("p").forEach(p => {
-            p.style.color = colores.footerTextColor || colores.texto;
-        });
+        const root = document.documentElement;
+        root.style.setProperty('--bg-body', colores.background);
+        root.style.setProperty('--text-main', colores.texto);
+        root.style.setProperty('--bg-nav', colores.navBackground);
+        root.style.setProperty('--bg-footer', colores.footerBackground);
+        root.style.setProperty('--bg-box', colores.boxBackground);
+        root.style.setProperty('--link-color', colores.linkColor);
+        root.style.setProperty('--link-bg', colores.linkBackground);
+        root.style.setProperty('--link-border', colores.linkBorderColor);
+        root.style.setProperty('--footer-text', colores.footerTextColor || colores.texto);
+        root.style.setProperty('--btn-primary', colores.btnPrimary);
+        root.style.setProperty('--btn-primary-hover', colores.btnPrimaryHover);
     }
 
     function cambiarPaletaAleatoria() {
@@ -117,6 +122,17 @@ document.addEventListener("DOMContentLoaded", async function () {
     logo.addEventListener("click", cambiarPaletaAleatoria);
     cargarContenido("pages/inicio.html");
     ajustarNav();
+
+    // Close menu when clicking outside
+    document.addEventListener("click", function (event) {
+        const isClickInsideMenu = barnav.contains(event.target);
+        const isClickOnToggle = toggleNav.contains(event.target);
+
+        if (!isClickInsideMenu && !isClickOnToggle && barnav.classList.contains("visible")) {
+            barnav.classList.remove("visible");
+            toggleNav.classList.remove("hidden");
+        }
+    });
 });
 
 // ==============================

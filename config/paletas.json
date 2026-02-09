@@ -8,7 +8,9 @@
         "linkBorderColor": "#2e7d32",
         "linkBackground": "#81c784",
         "boxBackground": "#ffffff",
-        "footerBackground": "#388e3c"
+        "footerBackground": "#388e3c",
+        "btnPrimary": "#4caf50",
+        "btnPrimaryHover": "#388e3c"
     },
     {
         "id": "cafe",
@@ -19,7 +21,9 @@
         "linkBorderColor": "#5d4037",
         "linkBackground": "#8d6e63",
         "boxBackground": "#ffffff",
-        "footerBackground": "#6d4c41"
+        "footerBackground": "#6d4c41",
+        "btnPrimary": "#795548",
+        "btnPrimaryHover": "#5d4037"
     },
     {
         "id": "morada",
@@ -30,6 +34,8 @@
         "linkBorderColor": "#6a3f8e",
         "linkBackground": "#9e74b9",
         "boxBackground": "white",
-        "footerBackground": "#7a4d9c"
+        "footerBackground": "#7a4d9c",
+        "btnPrimary": "#9c27b0",
+        "btnPrimaryHover": "#7b1fa2"
     }
 ]

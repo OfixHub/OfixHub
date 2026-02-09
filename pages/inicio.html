@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,44 +9,42 @@
     <script defer src="../script.js"></script>
     <script async src="../script.js"></script>
 </head>
+
 <body>
 
     <!-- Contenido principal -->
-    <div id="contenido" class="content">
-        <section class="hero">
-            <h1>Bienvenidos a OfixHub – Soluciones en Papelería y Tecnología</h1>
-            <p>En <strong>OfixHub</strong>, combinamos lo mejor de una papelería tradicional con servicios tecnológicos innovadores para ofrecerte una experiencia completa y eficiente.</p>
-        </section>
-        
-        <section class="content">
-            <div class="box">
-                <h2>📌 ¿Qué hacemos?</h2>
-                <p>Descubre nuestros servicios que combinan eficiencia y calidad.</p>
-            </div>
-            <div class="services-container">
-                <div class="box">
-                    <h3>Material de Oficina</h3>
-                    <p>Material de oficina y escolares de alta calidad.</p>
-                    <a href="#" class="btn">Ver más</a>
-                </div>
-                <div class="box">
-                    <h3>Impresiones y Escaneos</h3>
-                    <p>Impresiones, fotocopias y escaneos rápidos.</p>
-                    <a href="#" class="btn">Ver más</a>
-                </div>
-                <div class="box">
-                    <h3>Diseño Gráfico</h3>
-                    <p>Diseño gráfico y edición de documentos.</p>
-                    <a href="#" class="btn">Ver más</a>
-                </div>
-                <div class="box">
-                    <h3>Asesoría Tecnológica</h3>
-                    <p>Asesoría en tecnología y soporte digital.</p>
-                    <a href="pages/tecnologia.html" onclick="cargaContenido('')" class="btn">Ver más</a>
-                </div>
-            </div>
-        </section>
-    </div>
+    <!-- Contenido principal -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Impulsa tu Negocio con OfixHub</h1>
+            <p>La soluciones tecnológicas que necesitas.</p>
+            <a href="#" onclick="cargarContenido('pages/servicios.html')" class="btn-primary">Explorar Servicios</a>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="feature-box">
+            <h3>Insumos de Calidad</h3>
+            <p>Todo lo que necesitas para tu oficina, desde papel hasta mobiliario, con la mejor calidad del mercado.
+            </p>
+        </div>
+        <div class="feature-box">
+            <h3>Servicios Digitales</h3>
+            <p>Diseño web, desarrollo de apps y marketing digital para llevar tu negocio al siguiente nivel.</p>
+        </div>
+        <div class="feature-box">
+            <h3>Soporte Técnico</h3>
+            <p>Mantenimiento de equipos, asesoría especializada y soluciones rápidas a tus problemas tecnológicos.</p>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>¿Listo para optimizar tu trabajo?</h2>
+        <p>Contáctanos hoy mismo y descubre cómo podemos ayudarte.</p>
+        <br>
+        <a href="#" onclick="cargarContenido('pages/contacto.html')" class="btn-secondary">Contáctanos</a>
+    </section>
 
 </body>
+
 </html>

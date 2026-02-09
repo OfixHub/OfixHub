@@ -1,93 +1,80 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Servicios</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        .servicios-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            padding: 40px 20px;
-        }
-        .servicio {
-            max-width: 300px;
-            margin: 20px;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        .slider {
-            position: relative;
-            width: 100%;
-            height: 200px;
-            overflow: hidden;
-            border-radius: 10px;
-        }
-        .slider img {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-            z-index: 1;
-        }
-        .slider img.active {
-            opacity: 1;
-            z-index: 2;
-        }
-    </style>
 </head>
+
 <body>
-    <div class="servicios-container">
-        <div class="servicio">
-            <h2>Diseño Web</h2>
-            <div class="slider" id="slider1">
-                <img src="https://raw.githubusercontent.com/Crisrueda99/OfixHub/main/src/Desert.png" alt="Desert" class="active">
-                <img src="https://raw.githubusercontent.com/Crisrueda99/OfixHub/main/src/Scene.png" alt="Scene">
-                <img src="https://raw.githubusercontent.com/Crisrueda99/OfixHub/main/src/Profile.png" alt="Profile">
-                <img src="https://raw.githubusercontent.com/Crisrueda99/OfixHub/main/src/Character.png" alt="Character">
+
+    <section class="services-hero">
+        <h1>Nuestros Servicios</h1>
+        <p>Soluciones integrales para potenciar tu empresa</p>
+    </section>
+
+    <div class="services-grid">
+        <!-- Servicio 1 -->
+        <div class="service-card">
+            <div>
+                <h2>Diseño Web</h2>
+                <p>Creación de sitios web modernos, responsivos y optimizados para buscadores. Tu presencia en línea,
+                    profesional y efectiva.</p>
             </div>
-            <p>Creación de sitios web modernos y responsivos.</p>
+            <!-- Removed slider for cleaner look as per plan -->
         </div>
-        
-        <div class="servicio">
-            <h2>Desarrollo de Apps</h2>
-            <div class="slider" id="slider2">
-                <img src="https://raw.githubusercontent.com/Crisrueda99/OfixHub/main/src/Desert.png" alt="Desert" class="active">
-                <img src="https://raw.githubusercontent.com/Crisrueda99/OfixHub/main/src/Scene.png" alt="Scene">
-                <img src="https://raw.githubusercontent.com/Crisrueda99/OfixHub/main/src/Profile.png" alt="Profile">
-                <img src="https://raw.githubusercontent.com/Crisrueda99/OfixHub/main/src/Character.png" alt="Character">
+
+        <!-- Servicio 2 -->
+        <div class="service-card">
+            <div>
+                <h2>Desarrollo de Apps</h2>
+                <p>Aplicaciones móviles intuitivas y funcionales para iOS y Android. Lleva tu negocio al bolsillo de tus
+                    clientes.</p>
             </div>
-            <p>Aplicaciones móviles intuitivas y funcionales.</p>
+        </div>
+
+        <!-- Servicio 3 -->
+        <div class="service-card">
+            <div>
+                <h2>Asesoría Tecnológica</h2>
+                <p>Consultoría especializada en tecnología y soporte digital. Optimizamos tus procesos informáticos.</p>
+            </div>
+            <a href="pages/tecnologia.html" onclick="cargaContenido('')" class="btn-primary"
+                style="font-size: 1em; padding: 10px 20px;">Ver más</a>
+        </div>
+
+        <!-- Servicio 4 -->
+        <div class="service-card">
+            <div>
+                <h2>Material de Oficina</h2>
+                <p>Suministro de papelería y material escolar de alta calidad. Todo lo que tu oficina necesita para
+                    funcionar.</p>
+            </div>
+            <a href="https://wa.me/3138835376" class="btn-primary" target="_blank"
+                style="font-size: 1em; padding: 10px 20px;">Ver catálogo</a>
+        </div>
+
+        <!-- Servicio 5 -->
+        <div class="service-card">
+            <div>
+                <h2>Impresiones y Escaneos</h2>
+                <p>Servicios de impresión de alta resolución, fotocopias y digitalización de documentos. Rapidez y
+                    calidad garantizada.</p>
+            </div>
+        </div>
+
+        <!-- Servicio 6 -->
+        <div class="service-card">
+            <div>
+                <h2>Diseño Gráfico</h2>
+                <p>Creación de identidad corporativa, logotipos y material publicitario. Hacemos que tu marca destaque.
+                </p>
+            </div>
         </div>
     </div>
 
-    <script>
-        function iniciarSlider(id) {
-            let slider = document.getElementById(id);
-            let images = slider.querySelectorAll("img");
-            let index = 0;
-
-            if (images.length > 0) {
-                setInterval(() => {
-                    images.forEach(img => img.classList.remove("active"));
-                    index = (index + 1) % images.length;
-                    images[index].classList.add("active");
-                }, 3000);
-            }
-        }
-
-        document.addEventListener("DOMContentLoaded", function() {
-            iniciarSlider("slider1");
-            iniciarSlider("slider2");
-        });
-    </script>
 </body>
+
 </html>
