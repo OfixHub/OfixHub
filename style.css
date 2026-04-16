@@ -340,6 +340,8 @@ footer p {
     border: 2px solid white;
     display: inline-block;
     margin-top: 10px;
+    max-width: 90%;
+    box-sizing: border-box;
 }
 
 .btn-secondary:hover {
@@ -383,6 +385,37 @@ footer p {
     .logo {
         width: 70%;
         padding-left: 5%;
+    }
+
+    .hero {
+        padding: 50px 15px;
+        min-height: 250px;
+    }
+
+    .hero h1 {
+        font-size: 1.8em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    .cta-section {
+        padding: 30px 15px;
+    }
+
+    .cta-section h2 {
+        font-size: 1.4em;
+    }
+
+    .btn-primary {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+
+    .btn-secondary {
+        font-size: 0.95em;
+        padding: 10px 20px;
     }
 }
 
