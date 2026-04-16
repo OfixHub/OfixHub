@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tecnología | Asesoría y Soporte</title>
+  <link rel="stylesheet" href="tecnologia.css">
+  <script src="snake.js"></script>
+  
+</head>
+<body>
+
+  <!-- Introducción -->
+  <section class="intro">
+    <h1>Soluciones tecnológicas a tu alcance</h1>
+    <h2>Te ayudo a comprender y aprovechar la tecnología para impulsar tus proyectos y resolver problemas digitales.</h2>
+  </section>
+
+  <!-- Contenido principal -->
+  <section class="main-content">
+    <!-- Servicios -->
+    <div class="servicios">
+      <div class="box">💡 Consultoría en software y hardware</div>
+      <div class="box">🖥️ Asistencia remota y presencial</div>
+      <div class="box">☁️ Migración a la nube</div>
+      <div class="box">🔒 Seguridad informática básica</div>
+      <div class="box">📱 Configuración de dispositivos móviles</div>
+      <div class="box">🧰 Optimización de PCs y redes</div>
+    </div>
+
+    <!-- Juego Snake -->
+    <div class="snake-card">
+      <h3>🎮 Juego Snake</h3>
+      <div class="canvas-container" id="canvasContainer">
+        <canvas id="game" width="300" height="300"></canvas>
+      </div>
+      <div id="score">Puntaje: <span id="scoreValue">0</span></div>
+      <p class="touch-instruction">Desliza tu dedo para cambiar dirección</p>
+      <div class="snake-buttons" id="gameOverBtns">
+        <button id="restartBtn">Reiniciar</button>
+        <button id="contactBtn">OfixHub</button>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

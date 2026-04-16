@@ -1,0 +1,107 @@
+✅ CHECKLIST RÁPIDO - CONFIGURACIÓN FIREBASE
+
+PASO 1: CREAR PROYECTO EN FIREBASE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Ve a https://console.firebase.google.com/
+2. Haz clic en "Crear proyecto"
+3. Nombre: ofixhub
+4. ✗ Desmarca "Google Analytics"
+5. ✓ "Crear proyecto"
+
+PASO 2: OBTENER CREDENCIALES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. En tu proyecto, ve a ⚙️ Configuración
+2. Baja hasta encontrar "firebaseConfig"
+3. Copia los 5 valores:
+   - apiKey
+   - authDomain
+   - projectId
+   - storageBucket
+   - messagingSenderId
+   - appId
+
+4. Abre en tu editor: firebase-config.js
+5. Reemplaza los valores TU_*_AQUI con los que copiaste
+
+PASO 3: CREAR FIRESTORE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. En Firebase Console, izquierda → "Firestore Database"
+2. Haz clic en "Crear base de datos"
+3. Modo: "Producción" ← IMPORTANTE
+4. Región: Selecciona la más cercana a ti
+5. "Crear"
+
+PASO 4: CONFIGURAR FIRESTORE RULES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. En Firestore, pestaña "Reglas"
+2. Borra TODO y copia esto:
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /productos/{document=**} {
+      allow read: if true;
+      allow write: if request.auth != null && 
+                      request.auth.token.email == 'ofixhub@gmail.com';
+    }
+  }
+}
+
+3. "Publicar"
+
+PASO 5: CONFIGURAR AUTHENTICATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Izquierda → "Authentication"
+2. "Comenzar"
+3. "Email/Contraseña" → Habilitar → "Guardar"
+
+PASO 6: CREAR USUARIO ADMIN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. En Authentication → pestaña "Usuarios"
+2. Clic en "Agregar usuario"
+3. Email: ofixhub@gmail.com
+4. Contraseña: [Crea una segura]
+5. "Crear usuario"
+
+¡LISTO! 🎉
+
+Tu sitio ahora está conectado a Firebase.
+
+PRÓXIMOS PASOS (Opcional):
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Para desplegar en Firebase Hosting:
+
+1. Instala Node.js desde https://nodejs.org/
+
+2. Abre terminal en tu carpeta del proyecto y ejecuta:
+   npm install -g firebase-tools
+   firebase login
+   firebase init hosting
+
+3. Cuando pregunte:
+   - Public directory: . (punto)
+   - Single page app: y
+
+4. Para desplegar:
+   firebase deploy
+
+¡Tu sitio estará en https://ofixhub-project.web.app!
+
+LÍMITES GRATUITOS DE FIREBASE:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+- 50,000 lecturas/día
+- 20,000 escrituras/día
+- 1 GB almacenamiento
+= ✅ Suficiente para negocio pequeño/mediano
+
+OPTIMIZACIONES IMPLEMENTADAS:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ Caché local automática
+✅ Fallback a localStorage si falla Firebase
+✅ Soft delete (no elimina, ahorra escrituras)
+✅ Sincronización en tiempo real
+
+¿NECESITAS AYUDA?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Revisa FIREBASE_SETUP.md para más detalles 📖

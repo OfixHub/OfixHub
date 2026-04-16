@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - OfixHub</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="pages/admin.css">
+
+    <!-- Firebase SDK (compat mode para uso global clásico sin modules) -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+
+    <!-- Firebase Configuration -->
+    <script src="../firebase-config.js"></script>
+    <script src="../firebase-service.js"></script>
+    <script src="admin-firebase.js"></script>
+</head>
+
+<body>
+    <section class="admin-container">
+        <h1>Panel de Administración - Gestionar Productos</h1>
+
+        <div class="admin-content">
+            <!-- Formulario para agregar productos -->
+            <div class="form-section">
+                <h2 id="formTitulo">Agregar Nuevo Producto</h2>
+                <form id="productoForm">
+                    <input type="hidden" id="productoId">
+                    <div class="form-group">
+                        <label for="nombre">Nombre del Producto:</label>
+                        <input type="text" id="nombre" placeholder="Ej: Papel Bond A4" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="detalles">Detalles:</label>
+                        <textarea id="detalles" placeholder="Descripción del producto" rows="4" required></textarea>
+                    </div>
+
+                    <div class="form-group row-group">
+                        <div class="half-width">
+                            <label for="precioAnterior">Precio Anterior ($):</label>
+                            <input type="number" id="precioAnterior" placeholder="Ej: 30000" min="0" step="0.01">
+                            <small>Opcional (para mostrar descuento)</small>
+                        </div>
+                        <div class="half-width">
+                            <label for="precio">Precio Actual ($):</label>
+                            <input type="number" id="precio" placeholder="Ej: 25000" min="0" step="0.01" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="imagen">URL de la Imagen:</label>
+                        <input type="url" id="imagen" placeholder="https://ejemplo.com/imagen.jpg" required>
+                        <small>Pegue el enlace completo de la imagen (jpg, png, etc)</small>
+                    </div>
+
+                    <div class="form-actions" style="display: flex; gap: 10px;">
+                        <button type="submit" id="btnGuardarProducto" class="btn-primary">Agregar Producto</button>
+                        <button type="button" id="btnCancelarEdicion" class="btn-secondary"
+                            style="display: none;">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Lista de productos -->
+            <div class="products-section">
+                <h2>Productos Guardados</h2>
+                <div id="productosList" class="productos-list">
+                    <p>No hay productos agregados aún.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

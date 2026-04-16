@@ -1,0 +1,41 @@
+[
+    {
+        "id": "verde",
+        "background": "#e8f5e9",
+        "texto": "#1b5e20",
+        "navBackground": "#388e3c",
+        "linkColor": "white",
+        "linkBorderColor": "#2e7d32",
+        "linkBackground": "#81c784",
+        "boxBackground": "#ffffff",
+        "footerBackground": "#388e3c",
+        "btnPrimary": "#4caf50",
+        "btnPrimaryHover": "#388e3c"
+    },
+    {
+        "id": "cafe",
+        "background": "#f5f5f5",
+        "texto": "#3e2723",
+        "navBackground": "#6d4c41",
+        "linkColor": "white",
+        "linkBorderColor": "#5d4037",
+        "linkBackground": "#8d6e63",
+        "boxBackground": "#ffffff",
+        "footerBackground": "#6d4c41",
+        "btnPrimary": "#795548",
+        "btnPrimaryHover": "#5d4037"
+    },
+    {
+        "id": "morada",
+        "background": "#f3e6f8",
+        "texto": "#5d2f8e",
+        "navBackground": "#7a4d9c",
+        "linkColor": "white",
+        "linkBorderColor": "#6a3f8e",
+        "linkBackground": "#9e74b9",
+        "boxBackground": "white",
+        "footerBackground": "#7a4d9c",
+        "btnPrimary": "#9c27b0",
+        "btnPrimaryHover": "#7b1fa2"
+    }
+]

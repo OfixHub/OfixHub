@@ -1,0 +1,311 @@
+/* ====================================== */
+/* ======= ESTILOS PÁGINA PRODUCTOS ===== */
+/* ====================================== */
+
+.productos-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background-color: var(--bg-body);
+}
+
+.productos-container h1 {
+    color: var(--text-main);
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 1.1em;
+    margin-bottom: 40px;
+}
+
+/* ========= GRID DE PRODUCTOS ======= */
+
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.producto-card {
+    background-color: var(--bg-box);
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.producto-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.producto-imagen {
+    width: 100%;
+    height: 250px;
+    /* Aumentar altura para que la imagen se vea más grande */
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    background-color: transparent;
+    /* Quitar el fondo gris */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.producto-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* Cambio para mostrar la imagen completa */
+    background-color: transparent;
+}
+
+
+
+.producto-card h3 {
+    color: var(--text-main);
+    font-size: 1.4em;
+    margin: 0 0 15px 0;
+    word-wrap: break-word;
+}
+
+.producto-detalles {
+    color: #666;
+    font-size: 0.95em;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    flex-grow: 1;
+    text-align: left;
+}
+
+.producto-precio {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: var(--btn-primary);
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+.producto-card .btn-primary {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: var(--btn-primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.producto-card .btn-primary:active {
+    background-color: var(--btn-primary-hover);
+    transform: scale(0.98);
+}
+
+/* ============================
+   ESTILOS DE OFERTA Y EXPANSIÓN
+   ============================ */
+
+.oferta-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ff3b30;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.producto-imagen {
+    position: relative;
+    /* Para que el badge se posicione correcto */
+}
+
+.precios-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-bottom: 20px;
+}
+
+.producto-precio-viejo {
+    color: #999;
+    font-size: 0.95em;
+    margin: 0 0 5px 0;
+}
+
+.producto-precio-viejo del {
+    text-decoration: line-through;
+    text-decoration-color: #ff3b30;
+    text-decoration-thickness: 2px;
+}
+
+.producto-precio {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: var(--btn-primary);
+    margin: 0;
+}
+
+.producto-detalles-container {
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.producto-detalles {
+    color: #666;
+    font-size: 0.95em;
+    line-height: 1.5;
+    margin: 0;
+    text-align: left;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    /* Muestra solo 2 líneas por defecto */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: all 0.3s ease;
+}
+
+.ver-mas-texto {
+    display: block;
+    color: var(--link-color);
+    font-size: 0.85rem;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+/* Estado Expandido */
+.producto-card {
+    cursor: pointer;
+    /* Indica que toda la tarjeta es clickeable */
+}
+
+.producto-card.expanded {
+    transform: scale(1.05);
+    /* Se magnifica la tarjeta */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    position: relative;
+}
+
+.producto-card.expanded .producto-detalles {
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+    /* Quita el límite de líneas */
+}
+
+.producto-card.expanded .ver-mas-texto {
+    display: none;
+    /* Oculta el texto "ver más" */
+}
+
+/* ========= MENSAJE VACÍO ======= */
+
+.empty-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #999;
+    font-size: 1.1em;
+    padding: 50px 20px;
+    font-style: italic;
+}
+
+/* ========= RESPONSIVE ======= */
+
+@media (max-width: 1024px) {
+    .productos-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .productos-container {
+        padding: 25px 15px;
+    }
+
+    .productos-container h1 {
+        font-size: 2em;
+    }
+
+    .subtitle {
+        font-size: 1em;
+        margin-bottom: 30px;
+    }
+
+    .productos-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .producto-card {
+        padding: 20px;
+    }
+
+    .producto-card h3 {
+        font-size: 1.2em;
+    }
+
+    .producto-detalles {
+        font-size: 0.9em;
+    }
+
+    .producto-precio {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .productos-container {
+        padding: 15px 10px;
+    }
+
+    .productos-container h1 {
+        font-size: 1.5em;
+    }
+
+    .producto-card {
+        padding: 15px;
+    }
+
+    .producto-card h3 {
+        font-size: 1.1em;
+    }
+}
