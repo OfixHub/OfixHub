@@ -5,9 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tecnología | Asesoría y Soporte</title>
-  <link rel="stylesheet" href="tecnologia.css">
-  <script src="snake.js"></script>
-  
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="./tecnologia.css">
 </head>
 <body>
 
@@ -43,6 +42,27 @@
       </div>
     </div>
   </section>
+
+  <!-- Script de inicialización del juego -->
+  <script>
+    // Reintentar inicializar el juego después de que el contenido esté en el DOM
+    if (typeof initializeSnakeGame === 'function') {
+      console.log("🎮 Función initializeSnakeGame disponible, inicializando...");
+      setTimeout(initializeSnakeGame, 50);
+    } else {
+      console.warn("⚠️ Esperando a que snake.js se cargue...");
+      // Esperar a que snake.js se cargue
+      const checkSnakeReady = setInterval(() => {
+        if (typeof initializeSnakeGame === 'function') {
+          console.log("🎮 snake.js cargado, inicializando...");
+          initializeSnakeGame();
+          clearInterval(checkSnakeReady);
+        }
+      }, 100);
+      // Timeout después de 5 segundos
+      setTimeout(() => clearInterval(checkSnakeReady), 5000);
+    }
+  </script>
 
 </body>
 </html>

@@ -45,14 +45,21 @@ class SnakeGame {
     init() {
         this.getDOMElements();
         if (!this.elements.canvas) {
-            console.error("No se encontró el elemento canvas");
-            return;
+            console.error("❌ No se encontró el elemento canvas con id 'game'");
+            return false;
+        }
+        
+        if (!this.elements.ctx) {
+            console.error("❌ No se pudo obtener el contexto 2D del canvas");
+            return false;
         }
 
         this.setupGame();
         this.setupControls();
         this.checkTouchDevice();
         this.startGame();
+        console.log("✅ Snake Game inicializado correctamente");
+        return true;
     }
 
     /**
@@ -60,13 +67,28 @@ class SnakeGame {
      */
     getDOMElements() {
         this.elements.canvas = document.getElementById('game');
-        this.elements.ctx = this.elements.canvas?.getContext('2d');
+        
+        if (this.elements.canvas) {
+            this.elements.ctx = this.elements.canvas.getContext('2d');
+        }
+        
         this.elements.scoreElement = document.getElementById('scoreValue');
         this.elements.restartBtn = document.getElementById('restartBtn');
         this.elements.contactBtn = document.getElementById('contactBtn');
         this.elements.gameOverBtns = document.getElementById('gameOverBtns');
         this.elements.canvasContainer = document.getElementById('canvasContainer');
         this.elements.touchInstruction = document.querySelector('.touch-instruction');
+        
+        // Log para debugging
+        if (!this.elements.canvas) {
+            console.warn("⚠️ Canvas no encontrado");
+        }
+        if (!this.elements.restartBtn) {
+            console.warn("⚠️ Botón Reiniciar no encontrado");
+        }
+        if (!this.elements.contactBtn) {
+            console.warn("⚠️ Botón Contacto no encontrado");
+        }
     }
 
     /**
@@ -90,32 +112,41 @@ class SnakeGame {
      */
     setupControls() {
         // Limpiar event listeners previos
-        document.removeEventListener('keydown', this.handleKeyDown);
-        if (this.elements.canvasContainer) {
-            this.elements.canvasContainer.removeEventListener('touchstart', this.handleTouchStart);
-            this.elements.canvasContainer.removeEventListener('touchmove', this.handleTouchMove);
+        if (this.handleKeyDownBound) {
+            document.removeEventListener('keydown', this.handleKeyDownBound);
         }
-        if (this.elements.restartBtn) {
-            this.elements.restartBtn.removeEventListener('click', this.resetGame);
+        if (this.handleTouchStartBound && this.elements.canvasContainer) {
+            this.elements.canvasContainer.removeEventListener('touchstart', this.handleTouchStartBound);
+            this.elements.canvasContainer.removeEventListener('touchmove', this.handleTouchMoveBound);
         }
-        if (this.elements.contactBtn) {
-            this.elements.contactBtn.removeEventListener('click', this.handleContactClick);
+        if (this.resetGameBound && this.elements.restartBtn) {
+            this.elements.restartBtn.removeEventListener('click', this.resetGameBound);
+        }
+        if (this.handleContactClickBound && this.elements.contactBtn) {
+            this.elements.contactBtn.removeEventListener('click', this.handleContactClickBound);
         }
 
+        // Crear bindings para los métodos
+        this.handleKeyDownBound = this.handleKeyDown.bind(this);
+        this.handleTouchStartBound = this.handleTouchStart.bind(this);
+        this.handleTouchMoveBound = this.handleTouchMove.bind(this);
+        this.resetGameBound = this.resetGame.bind(this);
+        this.handleContactClickBound = this.handleContactClick.bind(this);
+
         // Agregar nuevos event listeners
-        document.addEventListener('keydown', this.handleKeyDown.bind(this));
+        document.addEventListener('keydown', this.handleKeyDownBound);
         
         if (this.elements.canvasContainer) {
-            this.elements.canvasContainer.addEventListener('touchstart', this.handleTouchStart.bind(this), { passive: false });
-            this.elements.canvasContainer.addEventListener('touchmove', this.handleTouchMove.bind(this), { passive: false });
+            this.elements.canvasContainer.addEventListener('touchstart', this.handleTouchStartBound, { passive: false });
+            this.elements.canvasContainer.addEventListener('touchmove', this.handleTouchMoveBound, { passive: false });
         }
         
         if (this.elements.restartBtn) {
-            this.elements.restartBtn.addEventListener('click', this.resetGame.bind(this));
+            this.elements.restartBtn.addEventListener('click', this.resetGameBound);
         }
         
         if (this.elements.contactBtn) {
-            this.elements.contactBtn.addEventListener('click', this.handleContactClick.bind(this));
+            this.elements.contactBtn.addEventListener('click', this.handleContactClickBound);
         }
     }
 
@@ -346,12 +377,55 @@ class SnakeGame {
      * Manejador del botón de contacto
      */
     handleContactClick() {
-        window.location.href = 'https://ofixhub.github.io/OfixHub/';
+        // Volver a la página de inicio
+        if (window.cargarContenido) {
+            window.cargarContenido('pages/inicio.html');
+        } else {
+            window.location.href = '/';
+        }
     }
 }
 
-// Inicialización del juego cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', () => {
-    const game = new SnakeGame();
-    game.init();
+// Función para inicializar el juego
+function initializeSnakeGame() {
+    console.log("🎮 Intentando inicializar Snake Game...");
+    
+    // Limpiar instancia anterior si existe
+    if (window.snakeGameInstance) {
+        console.log("🧹 Limpiando instancia anterior");
+        clearInterval(window.snakeGameInstance.state.gameInterval);
+    }
+    
+    // Crear nueva instancia del juego
+    window.snakeGameInstance = new SnakeGame();
+    const initialized = window.snakeGameInstance.init();
+    
+    if (initialized) {
+        console.log("✅ Snake Game inicializado correctamente");
+    } else {
+        console.error("❌ Error: No se pudo inicializar Snake Game");
+    }
+}
+
+// Inicializar en DOMContentLoaded (para carga inicial)
+if (document.readyState === 'loading') {
+    console.log("📄 Documento aún se está cargando, esperando DOMContentLoaded...");
+    document.addEventListener('DOMContentLoaded', () => {
+        console.log("📄 DOMContentLoaded dispuesto");
+        initializeSnakeGame();
+    });
+} else {
+    // Si el documento ya está listo, inicializar directamente
+    console.log("📄 Documento ya está listo, inicializando directamente");
+    initializeSnakeGame();
+}
+
+// Re-inicializar cuando se cargue la página dinamicamente
+document.addEventListener('paginaCargada', (event) => {
+    console.log("📄 Evento paginaCargada disparado:", event.detail.pagina);
+    if (event.detail.pagina && event.detail.pagina.includes('tecnologia')) {
+        console.log("🎮 Página de tecnología cargada, inicializando juego...");
+        // Esperar a que el contenido se renderice
+        setTimeout(initializeSnakeGame, 100);
+    }
 });

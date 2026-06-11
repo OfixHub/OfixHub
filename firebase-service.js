@@ -23,14 +23,15 @@ async function inicializarFirebase() {
         db = firebase.firestore();
         auth = firebase.auth();
 
-        // Habilitar caché local para reducir lecturas (IMPORTANTE para plan Spark)
-        db.enablePersistence().catch((err) => {
-            if (err.code == 'failed-precondition') {
-                console.log('Múltiples pestañas abiertas');
-            } else if (err.code == 'unimplemented') {
-                console.log('Navegador no soporta persistencia');
-            }
-        });
+        // Configurar caché local para reducir lecturas (IMPORTANTE para plan Spark)
+        // Usar FirestoreSettings.cache en lugar de enablePersistence() (deprecada)
+        try {
+            db.settings({
+                cache: { experimentalAutoDetectLongPolling: true }
+            });
+        } catch (err) {
+            console.log('No se pudo habilitar persistencia:', err.message);
+        }
 
         console.log('✅ Firebase inicializado correctamente');
         return true;

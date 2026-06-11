@@ -63,11 +63,11 @@ function inicializarAdmin() {
 
         const nombre = document.getElementById('nombre').value.trim();
         const detalles = document.getElementById('detalles').value.trim();
+        const precio = document.getElementById('precio').value.trim();
         const imagen = document.getElementById('imagen').value.trim();
 
         if (nombre && detalles && precio && imagen) {
-            agregarProducto(nombre, detalles, precio, imagen
-            agregarProducto(nombre, detalles, precio);
+            agregarProducto(nombre, detalles, precio, imagen);
             formulario.reset();
             mostrarProductosEnAdmin();
             alert('Producto agregado exitosamente');
@@ -90,10 +90,10 @@ function mostrarProductosEnAdmin() {
     }
 
     lista.innerHTML = productos.map(producto => `
-        <div class="producto-item"magen-admin">
+        <div class="producto-item">
+            <div class="producto-imagen-admin">
                 <img src="${producto.imagen}" alt="${producto.nombre}" onerror="this.src='https://via.placeholder.com/150?text=Sin+imagen'">
             </div>
-            <div class="producto-i>
             <div class="producto-info">
                 <h4>${producto.nombre}</h4>
                 <p><strong>Detalles:</strong> ${producto.detalles}</p>
@@ -126,15 +126,15 @@ function modificarProducto(id) {
 
     const nuevoDetalles = prompt('Detalles del producto:', producto.detalles);
     if (nuevoDetalles === null) return;
-const nuevaImagen = prompt('URL de la imagen:', producto.imagen);
+
+    const nuevoPrecio = prompt('Precio del producto:', producto.precio);
+    if (nuevoPrecio === null) return;
+
+    const nuevaImagen = prompt('URL de la imagen:', producto.imagen);
     if (nuevaImagen === null) return;
 
     if (nuevoNombre && nuevoDetalles && nuevoPrecio && nuevaImagen) {
-        editarProducto(id, nuevoNombre, nuevoDetalles, nuevoPrecio, nuevaImagenecio);
-    if (nuevoPrecio === null) return;
-
-    if (nuevoNombre && nuevoDetalles && nuevoPrecio) {
-        editarProducto(id, nuevoNombre, nuevoDetalles, nuevoPrecio);
+        editarProducto(id, nuevoNombre, nuevoDetalles, nuevoPrecio, nuevaImagen);
         mostrarProductosEnAdmin();
         alert('Producto actualizado exitosamente');
     }
