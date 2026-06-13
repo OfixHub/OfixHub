@@ -1,61 +1,27 @@
+# Ofixhub 🚀
+> Soluciones informáticas integrales y soporte técnico de hardware de alta complejidad.
+
+Ofixhub es un emprendimiento tecnológico enfocado en cerrar la brecha operativa de servicios digitales y soporte técnico avanzado. Combinamos la ingeniería de software a medida con un laboratorio especializado en el diagnóstico, mantenimiento y reparación de dispositivos electrónicos.
 
 ---
 
-## 🧹 OfixHub – Soluciones en Papelería y Tecnología
+## 💼 Características del Negocio
 
-**OfixHub** es una plataforma web que integra papelería tradicional con servicios tecnológicos, brindando una experiencia moderna, intuitiva y eficiente.
+### 1. Dualidad Operativa (Lógica y Física)
+Ofixhub segmenta su portafolio comercial en dos grandes ramas para cubrir las necesidades tecnológicas de comercios locales y usuarios avanzados:
+*   **Servicios Lógicos e Intangibles:** Desarrollo de software a medida, aplicaciones web multi-tenant, integración de APIs y consultoría tecnológica.
+*   **Servicios de Hardware y Repuestos:** Provisión de componentes físicos (pantallas AMOLED, módulos microcontroladores, consumibles) y repuestos en stock.
 
----
+### 2. Soporte Técnico Avanzado y Mantenimiento Preventivo
+Laboratorio especializado en evitar sobrecalentamientos, ruidos molestos de ventiladores y estrangulamiento térmico (*thermal throttling*) en dispositivos de alta exigencia:
+*   **Plataformas Soportadas:** Consolas de videojuegos (PlayStation/Xbox), PCs de Escritorio (Desktop) y Laptops.
+*   **Procedimientos de Élite:** Limpieza profunda con remoción total de polvo/pelusas en disipadores y aplicación de pasta térmica de alta gama (logrando reducir hasta 15°C de temperatura interna).
 
-### 🌐 Estructura del Sitio
+### 3. Cultura de Aseguramiento de la Calidad (QA)
+A diferencia de los talleres o agencias convencionales, Ofixhub implementa metodologías ágiles de ingeniería de software y rigurosos criterios de QA:
+*   **Control de Calidad en Hardware:** Ningún dispositivo se cataloga como *"Listo para Entrega"* sin superar checklists interactivos obligatorios post-reparación (pruebas de carga, encendido estable y verificación de puertos GPIO o de comunicación).
+*   **Automatización con IA:** Integración de modelos de lenguaje (LLMs) para la optimización de flujos y generación automatizada de datos de prueba, elevando los estándares de entrega.
 
-- `index.html` – Página principal  
-- `inicio.html` – Introducción  
-- `nosotros.html` – Sobre la empresa  
-- `servicios.html` – Nuestros servicios  
-- `contacto.html` – Formulario de contacto  
-- `guardar.php` – Procesamiento del formulario  
-- `style.css` – Estilos globales  
-- `script.js` – Funcionalidad interactiva  
-
-📁 Carpeta `src/`: contiene imágenes y recursos gráficos.
-
----
-
-### 📌 Servicios
-
-- **Impresiones y Escaneos:** Fotocopias, impresiones y digitalizaciones.  
-- **Diseño Gráfico:** Creación y edición de contenido visual.  
-- **Asesoría Tecnológica:** Soporte técnico y consultoría digital.
 
 ---
-
-### 📲 Redes Sociales
-
-Síguenos para estar al tanto de novedades:  
-Facebook · Instagram · WhatsApp · X · LinkedIn · YouTube · TikTok · Telegram · Pinterest · Threads
-
----
-
-### 🚀 ¿Cómo contribuir?
-
-1. Haz fork del repositorio  
-2. Crea una rama: `git checkout -b mi-feature`  
-3. Haz commit: `git commit -m "Agrega nueva funcionalidad"`  
-4. Sube la rama: `git push origin mi-feature`  
-5. Abre un Pull Request
-
----
-
-### 🧑‍💻 Autor
-
-Desarrollado por el equipo de **OfixHub**  
-📧 Contacto: [ofixhub@gmail.com](mailto:ofixhub@gmail.com)
-
----
-
-### ⚖️ Licencia
-
-Uso interno o personal. Para usos comerciales, contáctanos.
-
----
+🌐 *Para más información visita:* **[OfixHub.com](https://ofixhub.com)**
