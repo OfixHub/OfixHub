@@ -1,5 +1,5 @@
 # Ofixhub 🚀
-> Soluciones informáticas integrales y soporte técnico de hardware de alta complejidad.
+> Soluciones informáticas integrales y soporte técnico de hardware.
 
 Ofixhub es un emprendimiento tecnológico enfocado en cerrar la brecha operativa de servicios digitales y soporte técnico avanzado. Combinamos la ingeniería de software a medida con un laboratorio especializado en el diagnóstico, mantenimiento y reparación de dispositivos electrónicos.
 
