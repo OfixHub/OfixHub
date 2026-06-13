@@ -3,47 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OfixHub – Soluciones en Papelería y Tecnología</title>
-    <meta name="description" content="OfixHub combina papelería tradicional con servicios tecnológicos modernos: diseño web, apps, soporte técnico e insumos de oficina.">
-    <meta http-equiv="refresh" content="3;url=https://ofixhub-servicios.web.app">
+    <title>Redirigiendo a OfixHub...</title>
+    <meta http-equiv="refresh" content="3;url=https://ofixhub.com">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
             background: #0d1117;
             color: #e6edf3;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
             text-align: center;
-            padding: 20px;
-            gap: 16px;
         }
-        h1 { font-size: 2.5rem; color: #248644; }
-        p { font-size: 1.1rem; color: #8b949e; max-width: 500px; line-height: 1.6; }
+
+        .container {
+            max-width: 520px;
+            padding: 40px 30px;
+        }
+
+        img.logo {
+            width: 90px;
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-size: 1.8em;
+            color: #59b479;
+            margin-bottom: 12px;
+        }
+
+        p {
+            font-size: 1em;
+            line-height: 1.6;
+            color: #8b949e;
+            margin-bottom: 28px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: #21262d;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #248644, #59b479);
+            border-radius: 4px;
+            animation: fill 3s linear forwards;
+        }
+
+        @keyframes fill {
+            to { width: 100%; }
+        }
+
+        .redirect-msg {
+            font-size: 0.85em;
+            color: #6e7681;
+        }
+
         a {
-            display: inline-block;
-            padding: 12px 28px;
-            background: #248644;
-            color: #fff;
-            border-radius: 8px;
+            color: #59b479;
             text-decoration: none;
-            font-weight: 600;
-            transition: background 0.2s;
         }
-        a:hover { background: #2ea043; }
-        small { color: #484f58; font-size: 0.85rem; }
+
+        a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
-    <h1>OfixHub</h1>
-    <p>Soluciones en papelería y tecnología para impulsar tu negocio. Diseño web, desarrollo de apps, soporte técnico e insumos de oficina.</p>
-    <a href="https://ofixhub-servicios.web.app">Visitar OfixHub</a>
-    <small>Redirigiendo automáticamente en 3 segundos…</small>
+    <div class="container">
+        <img src="https://ofixhub-servicios.web.app/assets/Logo.svg" alt="OfixHub" class="logo">
+        <h1>OfixHub</h1>
+        <p>
+            Soluciones en papelería y tecnología para tu negocio.<br>
+            Insumos de oficina, diseño web, desarrollo de apps y soporte técnico,
+            todo en un solo lugar.
+        </p>
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+        <p class="redirect-msg">
+            Redirigiendo a <a href="https://ofixhub.com">ofixhub.com</a>…<br>
+            Si no eres redirigido, <a href="https://ofixhub.com">haz clic aquí</a>.
+        </p>
+    </div>
+
     <script>
-        setTimeout(() => window.location.replace('https://ofixhub-servicios.web.app'), 3000);
+        setTimeout(() => {
+            window.location.replace('https://ofixhub.com');
+        }, 3000);
     </script>
 </body>
 </html>
